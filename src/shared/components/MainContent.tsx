@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import ScrollTrigger from "gsap/ScrollTrigger";
 import useWindowSize from '@utils/WindowSize';
 import { CSS3Logo } from "@images/css3-logo.png"
+import { useLenis } from '@studio-freight/react-lenis';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +14,7 @@ const MainContent = ({ data }) => {
 
     const [wasSeen, wasSeenRef] = useWasSeen()
     const { width } = useWindowSize()
+    const lenis = useLenis()
 
     // useEffect(() => {
     //     if (wasSeen) {
@@ -61,7 +63,7 @@ const MainContent = ({ data }) => {
         return () => ctx.revert();
     }, [containerHeights]);
 
-    const [itemIndex, setItemIndex] = useState(0)
+    const [itemIndex, setItemIndex] = useState(0) 
 
     useEffect(() => {
         const ctx = gsap.context((self) => {
@@ -81,7 +83,8 @@ const MainContent = ({ data }) => {
         }, container);
 
         return () => ctx.revert();
-    }, []);
+    }, [lenis]);
+
 
     return (
         <>
