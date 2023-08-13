@@ -5,7 +5,7 @@ export const menuLinks = [
     },
     {
         name: "Projects",
-        url: "/projects"
+        url: "#projects"
     },
     {
         name: "Contact",
