@@ -6,9 +6,9 @@ const prismicConfig = require("./prismic-configuration");
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Aaron Jay Malabanan`,
+    title: `Aaron Jay`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `aaronmlbnn23`,
+    author: `shipshapebear`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
