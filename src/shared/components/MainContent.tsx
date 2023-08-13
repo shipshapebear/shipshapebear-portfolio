@@ -95,8 +95,8 @@ const MainContent = ({ data }) => {
                         {data.prismicProjects.data.project_items.map((project, index) => {
                             if (index === itemIndex)
                                 return (<div className="sticky-media absolute inset-0 py-4">
-                                    <div className="rounded-2xl border-2 relative overflow-hidden pb-0 h-full boder-border ">
-                                        <GatsbyImage image={project.project_image.gatsbyImageData} alt="test" placeholder='none' />
+                                    <div className="rounded-2xl border-2 relative overflow-hidden pb-0 h-full boder-border">
+                                        <GatsbyImage image={project.project_image.gatsbyImageData} className="object-cover h-full" alt="test" placeholder='none' />
                                     </div>
                                 </div>)
                         })}
