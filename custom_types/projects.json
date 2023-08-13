@@ -1,0 +1,40 @@
+{
+    "Main" : {
+      "section_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading2,heading3,heading4,heading5,heading6",
+          "label" : "Section Title"
+        }
+      },
+      "project_items" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "project_title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "single" : "heading2,heading3,heading4,heading5,heading6",
+                "label" : "Project Title"
+              }
+            },
+            "project_description" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Project Description"
+              }
+            },
+            "project_link" : {
+              "type" : "Link",
+              "config" : {
+                "label" : "Project Link",
+                "select" : null
+              }
+            }
+          },
+          "label" : "Project Items"
+        }
+      }
+    }
+  }

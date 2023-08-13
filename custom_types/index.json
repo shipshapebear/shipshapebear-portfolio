@@ -1,0 +1,20 @@
+[
+  {
+    "id": "home",
+    "name": "home",
+    "repeatable": false,
+    "value": "home.json"
+  },
+  {
+    "id": "project_items",
+    "name": "Project Items",
+    "repeatable": true,
+    "value": "projects_items.json"
+  },
+  {
+    "id": "projects",
+    "name": "Projects",
+    "repeatable": true,
+    "value": "projects.json"
+  }
+]
