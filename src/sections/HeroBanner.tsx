@@ -34,7 +34,7 @@ const Specializations = [
 
 const HeroBanner = ({ data }) => {
   return (
-    <section id="home" className="min-h-screen w-full">
+    <section id="home" className="w-full">
       <div className="block max-w-[1024px] w-full mx-auto h-full mt-[55px]">
         <h1 className="px-2 lg:px-0 text-[2.25rem] w-auto md:text-[5.5rem] text-center font-bold leading-none tracking-[-0.065em]">
           {data.prismicHome.data.banner_title.text}

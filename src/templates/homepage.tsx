@@ -22,6 +22,7 @@ const HomepageTemplate = ({ data }) => {
   };
 
   return <Layout activeDocMeta={activeDoc} links={links}>
+    <HeroBanner data={data}/>
     <MainContent data={data} />
   </Layout>;
 };

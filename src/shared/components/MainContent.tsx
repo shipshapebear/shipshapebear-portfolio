@@ -63,7 +63,7 @@ const MainContent = ({ data }) => {
         return () => ctx.revert();
     }, [containerHeights]);
 
-    const [itemIndex, setItemIndex] = useState(0) 
+    const [itemIndex, setItemIndex] = useState(0)
 
     useEffect(() => {
         const ctx = gsap.context((self) => {
@@ -88,7 +88,7 @@ const MainContent = ({ data }) => {
 
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 2xl:gap-6 items-start -my-4" ref={component}>
+            <div id="projects" className=" grid grid-cols-1 max-w-[80vw] pt-[280px] scroll-p-[50px] mx-auto lg:grid-cols-12 gap-4 2xl:gap-6 items-start -my-4" ref={component}>
                 <div className="col-span-6 relative w-full  hidden lg:block">
                     <div className='pin-spacer' >
                         <div className="pb-[100%] w-full hidden lg:block"></div>
@@ -110,7 +110,7 @@ const MainContent = ({ data }) => {
                             <div className="pb-[100%] w-full hidden lg:block">
                             </div>
                             <div className="lg:absolute lg:inset-0 py-4">
-                                <div className="mt-6 lg:mt-0 rounded-2xl border-2 flex flex-col justify-center h-full px-6 py-12 lg:py-0 md:px-12 lg:px-24 border-gray-15">
+                                <div className="bg-background mt-6 lg:mt-0 rounded-2xl border-2 flex flex-col justify-center h-full lg:py-0 md:px-12 border-gray-15 font-[12vw]">
                                     {project.project_description.text}
                                 </div>
                             </div>
