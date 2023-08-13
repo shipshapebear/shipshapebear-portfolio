@@ -100,8 +100,6 @@ const MainContent = ({ data }) => {
                                     </div>
                                 </div>)
                         })}
-
-
                     </div>
                 </div>
 
