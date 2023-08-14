@@ -72,11 +72,17 @@ const MainContent = ({ data }) => {
                 gsap.to(box, {
                     scrollTrigger: {
                         trigger: box,
-                        start: 'top 280px',
+                        start: 'top 250px',
                         end: `+=${containerHeights.items}`,
                         scrub: true,
                         markers: false,
                         onToggle: () => setItemIndex(index),
+                        snap: {
+                            snapTo: 1,
+                            duration: 0.2,
+                            delay: 0,
+                            ease: "easeInOut",
+                          },
                     },
                 });
             });
