@@ -7,7 +7,6 @@ import useWindowSize from '@utils/WindowSize';
 import { CSS3Logo } from "@images/css3-logo.png"
 import { useLenis } from '@studio-freight/react-lenis';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const MainContent = ({ data }) => {
@@ -52,10 +51,10 @@ const MainContent = ({ data }) => {
             gsap.to(".pin-spacer", {
                 scrollTrigger: {
                     trigger: ".pin-spacer",
-                    start: 'top 250px',
+                    start: 'top 260px',
                     pin: true,
                     pinSpacing: true,
-                    markers: false,
+                    markers: true,
                     end: `+=${containerHeights.container - containerHeights.items}`,
                 }
             });
@@ -72,17 +71,17 @@ const MainContent = ({ data }) => {
                 gsap.to(box, {
                     scrollTrigger: {
                         trigger: box,
-                        start: 'top 250px',
+                        start: 'top 260px',
                         end: `+=${containerHeights.items}`,
                         scrub: true,
-                        markers: false,
+                        markers: true,
                         onToggle: () => setItemIndex(index),
-                        snap: {
-                            snapTo: 1,
-                            duration: 0.2,
-                            delay: 0,
-                            ease: "easeInOut",
-                          },
+                        // snap: {
+                        //     snapTo: 1,
+                        //     duration: 0.2,
+                        //     delay: 0,
+                        //     ease: "easeInOut",
+                        // },
                     },
                 });
             });
@@ -91,16 +90,17 @@ const MainContent = ({ data }) => {
         return () => ctx.revert();
     }, [lenis]);
 
+    console.log(itemIndex)
 
     return (
         <>
-            <div id="projects" className=" grid grid-cols-1 max-w-[80vw] pt-[280px] scroll-p-[50px] mx-auto lg:grid-cols-12 gap-4 2xl:gap-6 items-start -my-4" ref={component}>
+            <div id="projects" className=" grid grid-cols-1 max-w-[80vw] scroll-p-[50px] mx-auto lg:grid-cols-12 gap-4 2xl:gap-6 items-start -my-4" ref={component}>
                 <div className="col-span-6 relative w-full  hidden lg:block">
-                    <div className='pin-spacer' >
+                    <div className='pin-spacer'>
                         <div className="pb-[100%] w-full hidden lg:block"></div>
                         {data.prismicProjects.data.project_items.map((project, index) => {
                             if (index === itemIndex)
-                                return (<div className="sticky-media absolute inset-0 py-4">
+                                return (<div className="sticky-media absolute inset-0 py-4" key={index}>
                                     <div className="rounded-2xl border-2 relative overflow-hidden pb-0 h-full boder-border">
                                         <GatsbyImage image={project.project_image.gatsbyImageData} className="object-cover h-full" alt="test" placeholder='none' />
                                     </div>
