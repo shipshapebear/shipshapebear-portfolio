@@ -30,6 +30,7 @@
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "fast-average-color": "^9.3.0",
+    "framer-motion": "^10.15.2",
     "gatsby": "^5.10",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-image": "^3.4.0",
