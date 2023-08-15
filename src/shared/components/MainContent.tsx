@@ -46,7 +46,6 @@ const MainContent = ({ data }) => {
     }, [width])
 
 
-
     useEffect(() => {
         let ctx = gsap.context(() => {
             gsap.to(".pin-spacer", {
@@ -64,11 +63,28 @@ const MainContent = ({ data }) => {
     }, [containerHeights]);
 
     const [itemIndex, setItemIndex] = useState(0)
+    const snapControl = {
+        snapTo: 1,
+        duration: 0.2,
+        delay: 0,
+        ease: "easeInOut",
+    }
 
     useEffect(() => {
         const ctx = gsap.context((self) => {
             const textBoxs = self.selector('.text-section');
+            gsap.to(".pin-spacer", {
+                scrollTrigger: {
+                    trigger: ".pin-spacer",
+                    start: 'top 260px',
+                    pin: true,
+                    pinSpacing: true,
+                    markers: false,
+                    end: `+=${containerHeights.container - containerHeights.items}`,
+                }
+            });
             textBoxs.forEach((box, index) => {
+                const isLastChild = index === textSectionRef.current?.length - 1;
                 gsap.to(box, {
                     scrollTrigger: {
                         trigger: box,
@@ -76,13 +92,17 @@ const MainContent = ({ data }) => {
                         end: `+=${containerHeights.items}`,
                         scrub: true,
                         markers: false,
-                        onToggle: () => setItemIndex(index),
-                        // snap: {
-                        //     snapTo: 1,
-                        //     duration: 0.2,
-                        //     delay: 0,
-                        //     ease: "easeInOut",
-                        // },
+                        onEnter: (self) => {
+                            if (isLastChild) return                          
+                            setItemIndex((itemIndex) => itemIndex + self.direction)
+                        }
+                        ,
+                      
+                        onLeaveBack: (self) => {
+                            if (isLastChild) return
+                            setItemIndex((itemIndex) => itemIndex + self.direction)
+                        },
+                        snap: isLastChild ? 0 : snapControl
                     },
                 });
             });
@@ -91,7 +111,7 @@ const MainContent = ({ data }) => {
         return () => ctx.revert();
     }, [lenis]);
 
-    console.log(itemIndex)
+
 
     return (
         <>
