@@ -127,10 +127,10 @@ const MainContent = ({ data }) => {
                                             key={project.project_image.url}
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
-                                            transition={{ duration: 1 }}
+                                            transition={{ duration: 1, delay: 0.6 }}
                                             exit={{ opacity: 0 }} className="sticky-media absolute inset-0 py-4">
                                             <div className="rounded-2xl border-2 relative overflow-hidden pb-0 h-full boder-border">
-                                                <GatsbyImage image={project.project_image.gatsbyImageData} className="object-cover h-full" alt="test" placeholder='none' />
+                                                <GatsbyImage image={project.project_image.gatsbyImageData} className="object-cover h-full" alt="test" placeholder="blur" />
                                             </div>
                                         </motion.div>)
                             })}
