@@ -36,7 +36,7 @@ const HeroBanner = ({ data }) => {
   return (
     <section id="home" className="w-full">
       <div className="block max-w-[1024px] w-full mx-auto h-full mt-[55px]">
-        <h1 className="px-2 lg:px-0 text-[2.25rem] w-auto md:text-[5.5rem] text-center font-bold leading-none tracking-[-0.065em]">
+        <h1 className="px-2 lg:px-0 text-[2.25rem] w-auto md:text-[5.5rem] text-center font-bold leading-none tracking-[-0.065em] text-slate-50">
           {data.prismicHome.data.banner_title.text}
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 px-4 gap-x-6 gap-y-4 mt-[50px] justify-center">
@@ -44,7 +44,7 @@ const HeroBanner = ({ data }) => {
             return (
               <Link
                 to="/"
-                className="flex float-none bg-orange-50 md:bg-transparent px-2 items-center rounded-md cursor-pointer"
+                className="flex float-none bg-orange-50 md:bg-transparent rounded-md items-center cursor-pointer p-2 lg:p-5"
                 key={val.widget_title + i}
               >
                 <span className="p-3 bg-transparent md:bg-orange-50  rounded-full h-max mr-2 [&>*]:text-orange-500">
@@ -58,7 +58,7 @@ const HeroBanner = ({ data }) => {
                   <strong className="text-orange-500">
                     {val.widget_title.text}
                   </strong>
-                  <p className="hidden md:block leading-none text-sm">
+                  <p className="hidden md:block leading-none text-sm text-slate-50">
                     {val.widget_description.text}
                   </p>
                 </div>

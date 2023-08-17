@@ -40,6 +40,8 @@ html {
   line-height: 1.5;
   font-size: 1rem;
   -webkit-text-size-adjust: 100%;
+  background: url("../svgs/bg.svg");
+  background-blend-mode: lighten, normal;
 }
 
 @layer components {
