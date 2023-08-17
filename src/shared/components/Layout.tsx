@@ -20,6 +20,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import MainContent from "./MainContent";
 import { ReactLenis } from '@studio-freight/react-lenis'
 import { TransitionProvider } from "@contexts/TransitionContext";
+import Footer from "./Footer";
 
 
 const Layout = ({ children, title, description, activeDocMeta, links }: any) => {
@@ -29,11 +30,14 @@ const Layout = ({ children, title, description, activeDocMeta, links }: any) => 
       <Seo title={title} description={description} />
       <ReactLenis root>
         <TransitionProvider>
-          <Header3 />
-          <div className="w-full min-h-screen max-w-screen-xl mx-auto px-12 flex flex-col">
-            <main className="flex-1 py-20 overflow-auto my-20">
-              {children}
+          <div className="w-full min-h-screen mx-auto flex flex-col">
+            <Header3 />
+            <main className="flex 1">
+              <div className="max-w-screen-xl mx-auto">
+                {children}
+              </div>
             </main>
+            <Footer />
           </div>
         </TransitionProvider>
       </ReactLenis>

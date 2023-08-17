@@ -73,16 +73,6 @@ const MainContent = ({ data }) => {
     useEffect(() => {
         const ctx = gsap.context((self) => {
             const textBoxs = self.selector('.text-section');
-            gsap.to(".pin-spacer", {
-                scrollTrigger: {
-                    trigger: ".pin-spacer",
-                    start: 'top 260px',
-                    pin: true,
-                    pinSpacing: true,
-                    markers: false,
-                    end: `+=${containerHeights.container - containerHeights.items}`,
-                }
-            });
             textBoxs.forEach((box, index) => {
                 const isLastChild = index === textSectionRef.current?.length - 1;
                 gsap.to(box, {
@@ -93,16 +83,16 @@ const MainContent = ({ data }) => {
                         scrub: true,
                         markers: false,
                         onEnter: (self) => {
-                            if (isLastChild) return                          
+                            if (isLastChild) return
                             setItemIndex((itemIndex) => itemIndex + self.direction)
                         }
                         ,
-                      
+
                         onLeaveBack: (self) => {
                             if (isLastChild) return
                             setItemIndex((itemIndex) => itemIndex + self.direction)
                         },
-                        snap: isLastChild ? 0 : snapControl
+                        snap: isLastChild || width <= 1024 ? 0 : snapControl
                     },
                 });
             });
@@ -115,48 +105,58 @@ const MainContent = ({ data }) => {
 
     return (
         <>
-            <div id="projects" className="mt-20 grid grid-cols-1 max-w-[80vw] scroll-p-[50px] mx-auto lg:grid-cols-12 gap-4 2xl:gap-6 items-start -my-4" ref={component}>
-                <div className="col-span-6 relative w-full  hidden lg:block">
-                    <AnimatePresence>
-                        <div className='pin-spacer'>
-                            <div className="pb-[100%] w-full hidden lg:block"></div>
-                            {data.prismicProjects.data.project_items.map((project, index) => {
-                                if (index === itemIndex)
+            <section id="projects" className='mt-20'>
+                <h2 className='text-slate-50 text-center mb-5'>My Projects</h2>
+                <div className="grid grid-cols-1 max-w-screen-xl px-4 lg:px-12 scroll-p-[50px] mx-auto lg:grid-cols-12 gap-4 2xl:gap-6 items-start" ref={component}>
+                    <div className="col-span-6 relative w-full  hidden lg:block">
+                        <AnimatePresence>
+                            <div className='pin-spacer'>
+                                {data.prismicProjects.data.project_items.map((project, index) => {
                                     return (
-                                        <motion.div
-                                            key={project.project_image.url}
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{ duration: 1, delay: 0.6 }}
-                                            exit={{ opacity: 0 }} className="sticky-media absolute inset-0 py-4">
+                                        <div className="sticky-media absolute inset-0 py-4">
                                             <div className="rounded-2xl border-2 relative overflow-hidden pb-0 h-full boder-border">
-                                                <GatsbyImage image={project.project_image.gatsbyImageData} className="object-cover h-full" alt="test" placeholder="blur" />
+                                                {
+                                                    index === itemIndex &&
+                                                    <motion.div
+                                                        key={project.project_image.url}
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: 1 }}
+                                                        transition={{ duration: 1, delay: 0.6 }}
+                                                        exit={{ opacity: 0 }} >
+                                                        <GatsbyImage image={project.project_image.gatsbyImageData} className="absolute inset h-full" alt="test" placeholder="blur" />
+                                                    </motion.div>
+                                                }
                                             </div>
-                                        </motion.div>)
-                            })}
-                        </div>
-                    </AnimatePresence>
-                </div>
-
-
-                <div className="col-span-6" ref={container}>
-                    {data.prismicProjects.data.project_items.map((project, index) =>
-                        <div className="text-section relative group" ref={textSectionRef} key={index} ref={(element) => { textSectionRef.current[index] = element }} >
-                            <div className="pb-[100%] w-full hidden lg:block">
+                                        </div>)
+                                })}
+                                <div className="pb-[100%] w-full hidden lg:block"></div>
                             </div>
-                            <div className="lg:absolute lg:inset-0 py-4">
-                                <div className="bg-background mt-6 lg:mt-0 rounded-2xl border-2 flex flex-col justify-center h-full lg:py-0 md:px-12 border-gray-15 font-[12vw]">
-                                    {project.project_description.text}
+                        </AnimatePresence>
+                    </div>
+
+
+                    <div className="col-span-6" ref={container}>
+                        {data.prismicProjects.data.project_items.map((project, index) =>
+                            <div className="text-section relative group" ref={textSectionRef} key={index} ref={(element) => { textSectionRef.current[index] = element }} >
+                                <div className="pb-[100%] w-full hidden lg:block">
+                                </div>
+                                <div className="lg:absolute lg:inset-0 py-0 lg:py-4">
+                                    <div className="relative bg-neutral-900 text-slate-50 mt-6 lg:mt-0 rounded-2xl border-2 flex flex-col justify-center h-full py-12 lg:py-4 px-4 md:px-12 border-gray-15 font-[12vw] overflow-hidden">
+                                        {project.project_description.text}
+                                        <div className='absolute lg:hidden inset-0 opacity-10'>
+                                            <GatsbyImage image={project.project_image.gatsbyImageData} className="object-cover h-full" alt="test" placeholder="blur" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+
+                    </div>
 
                 </div>
-
-            </div>
-            <div className='h-screen'>
-            </div>
+                <div className='h-screen'>
+                </div>
+            </section>
         </>
     )
 }
