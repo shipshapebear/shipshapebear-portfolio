@@ -5,8 +5,8 @@ import Layout from "@components/Layout";
 import HeroBanner from "@sections/HeroBanner";
 import Seo from "@components/Seo";
 import { SliceZone } from '@prismicio/react'
-import MainContent from "@components/MainContent";
 import AboutContent from "@components/AboutContent";
+import ProjectContent from "@components/ProjectContent";
 
 
 const HomepageTemplate = ({ data }) => {
@@ -25,7 +25,7 @@ const HomepageTemplate = ({ data }) => {
   return <Layout activeDocMeta={activeDoc} links={links}>
     <HeroBanner data={data} />
     <AboutContent />
-    <MainContent data={data} />
+    <ProjectContent data={data} />
   </Layout>;
 };
 

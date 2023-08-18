@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../shared/components/Layout'
 import { HeadFC, graphql } from 'gatsby'
 import Seo from '@components/Seo';
-import MainContent from '@components/MainContent';
+import MainContent from '@components/ProjectContent';
 
 const Projects = ({ data }) => {
   const pageData = data.prismicProjects;

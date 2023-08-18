@@ -5,7 +5,7 @@ import './src/styles/global.css'
 export const wrapPageElement = ({ element, }) => {
   return <GlobalProvider>{element}</GlobalProvider>
 }
-export const shouldUpdateScroll = () => false;
+// export const shouldUpdateScroll = () => false;
 
 // export const shouldUpdateScroll = ({
 //   routerProps: { location },

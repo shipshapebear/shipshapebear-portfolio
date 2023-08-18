@@ -17,10 +17,11 @@ import Header2 from "./Header2";
 import Header3 from "./Header3";
 import { useWasSeen } from "@utils/useWasSeen";
 import { StaticImage } from "gatsby-plugin-image";
-import MainContent from "./MainContent";
+import MainContent from "./ProjectContent";
 import { ReactLenis } from '@studio-freight/react-lenis'
 import { TransitionProvider } from "@contexts/TransitionContext";
 import Footer from "./Footer";
+import GradientOverlay from "./GradientOverlay";
 
 
 const Layout = ({ children, title, description, activeDocMeta, links }: any) => {
@@ -30,12 +31,10 @@ const Layout = ({ children, title, description, activeDocMeta, links }: any) => 
       <Seo title={title} description={description} />
       <ReactLenis root>
         <TransitionProvider>
-          <div className="w-full min-h-screen mx-auto flex flex-col">
+          <div className="relative w-full min-h-screen mx-auto flex flex-col">
             <Header3 />
-            <main className="flex 1">
-              <div className="max-w-screen-xl mx-auto">
-                {children}
-              </div>
+            <main className="flex-1">
+              {children}
             </main>
             <Footer />
           </div>
