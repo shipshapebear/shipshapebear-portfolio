@@ -42,7 +42,7 @@ const HeroBanner = ({ data }) => {
           <h1 className="px-2 lg:px-0 text-[2.25rem] w-auto md:text-[5.5rem] text-center font-bold leading-none tracking-[-0.065em] text-slate-50">
             {data.prismicHome.data.banner_title.text}
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 px-4 gap-x-6 gap-y-4 mt-[50px] justify-center">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 px-4 gap-x-6 gap-y-4 mt-[50px] justify-center">
             {data.prismicHome.data.banner_widgets.map((val: any, i: number) => {
               return (
                 <Link
@@ -69,7 +69,7 @@ const HeroBanner = ({ data }) => {
                 </Link>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
