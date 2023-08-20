@@ -24,7 +24,7 @@ const HomepageTemplate = ({ data }) => {
 
   return <Layout activeDocMeta={activeDoc} links={links}>
     <HeroBanner data={data} />
-    {/* <AboutContent /> */}
+    <AboutContent />
     <ProjectContent data={data} />
   </Layout>;
 };

@@ -14,7 +14,7 @@ function Header3() {
           <ul className='flex gap-10 text-slate-50'>
             {menuLinks.map((link) => (
               <li key={link.name}>
-                <Link to={link.url}>{link.name}</Link>
+                <a href={link.url}>{link.name}</a>
               </li>
             ))}
           </ul>

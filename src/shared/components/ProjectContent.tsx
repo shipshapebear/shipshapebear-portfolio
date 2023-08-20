@@ -35,13 +35,13 @@ const ProjectContent = ({ data }) => {
 
     }, [width])
 
-
+  
     useEffect(() => {
         let ctx = gsap.context(() => {
             gsap.to(".pin-spacer", {
                 scrollTrigger: {
                     trigger: ".pin-spacer",
-                    start: 'top 260px',
+                    start: 'top 230px',
                     pin: true,
                     pinSpacing: true,
                     markers: false,
@@ -68,7 +68,7 @@ const ProjectContent = ({ data }) => {
                 gsap.to(box, {
                     scrollTrigger: {
                         trigger: box,
-                        start: 'top 260px',
+                        start: 'top 230px',
                         end: `+=${containerHeights.items}`,
                         scrub: true,
                         markers: false,
@@ -91,6 +91,7 @@ const ProjectContent = ({ data }) => {
         return () => ctx.revert();
     }, [lenis]);
 
+    //console.log(itemIndex)
     return (
         <section id="projects" className='mt-20 scroll-m-[2rem] lg:scroll-m-[300px]'>
             <h2 className='text-slate-50 text-center mb-5'>My Projects</h2>
@@ -100,7 +101,7 @@ const ProjectContent = ({ data }) => {
                         <div className='pin-spacer'>
                             {data.prismicProjects.data.project_items.map((project, index) => {
                                 return (
-                                    <div className="sticky-media absolute inset-0 py-4">
+                                    <div className="sticky-media absolute inset-0 py-4" key={index}>
                                         <div className="rounded-2xl border-2 relative overflow-hidden pb-0 h-full boder-border">
                                             {
                                                 index === itemIndex &&
